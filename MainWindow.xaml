@@ -1,12 +1,17 @@
 ﻿<Window x:Class="PressSubscription.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PressSubscription"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Подписка на издания"
+        Height="350"
+        Width="400">
 
-    </Grid>
+    <StackPanel Margin="20">
+
+        <Button Content="Подписчики" Click="Subscribers_Click" Margin="0,5"/>
+        <Button Content="Издания" Click="Publications_Click" Margin="0,5"/>
+        <Button Content="Подписки" Click="Subscriptions_Click" Margin="0,5"/>
+        <Button Content="Импорт Excel" Click="Import_Click" Margin="0,5"/>
+
+    </StackPanel>
+
 </Window>

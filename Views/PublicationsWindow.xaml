@@ -1,0 +1,47 @@
+<Window x:Class="PressSubscription.Views.PublicationsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Издания"
+        Height="450"
+        Width="700">
+
+    <DockPanel>
+
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Button Content="Добавить" Click="Add_Click" Margin="5"/>
+            <Button Content="Удалить" Click="Delete_Click" Margin="5"/>
+        </StackPanel>
+
+        <ListView x:Name="PublicationsList">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <Image Source="{Binding Image}"
+                               Width="80"
+                               Height="80"
+                               Margin="5"/>
+
+                        <StackPanel>
+
+                            <TextBlock Text="{Binding Title}"
+                                       FontWeight="Bold"/>
+
+                            <TextBlock Text="{Binding Publisher}"/>
+
+                            <TextBlock Text="{Binding PricePerMonth}"/>
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </DockPanel>
+
+</Window>
