@@ -19,6 +19,19 @@ public partial class SubscriptionsWindow : Window
     {
         InitializeComponent();
         LoadData();
+        ApplyUserPermissions();
+    }
+
+    private void ApplyUserPermissions()
+    {
+        var isAdmin = AuthService.IsAdmin();
+        
+        if (!isAdmin)
+        {
+            AddButton.Visibility = Visibility.Collapsed;
+            EditButton.Visibility = Visibility.Collapsed;
+            DeleteButton.Visibility = Visibility.Collapsed;
+        }
     }
 
     private void LoadData()

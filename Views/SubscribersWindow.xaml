@@ -3,42 +3,46 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Подписчики"
         Height="500"
-        Width="800">
+        Width="800"
+        MinHeight="400"
+        MinWidth="600"
+        WindowStartupLocation="CenterScreen">
 
     <DockPanel>
 
-        <Border DockPanel.Dock="Top"
-                Background="White"
-                Padding="10"
-                BorderBrush="#E0E0E0"
-                BorderThickness="0,0,0,1">
+        <!-- TOP PANEL -->
+        <Border DockPanel.Dock="Top" Style="{StaticResource TopPanelBorder}">
 
             <StackPanel>
                 
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="Добавить" Click="Add_Click" Margin="5"/>
-                    <Button Content="Редактировать" Click="Edit_Click" Margin="5"/>
-                    <Button Content="Удалить" Click="Delete_Click" Margin="5"/>
-                </StackPanel>
+                <WrapPanel Margin="0,0,0,10">
+                    <Button x:Name="AddButton" Content="Добавить" Click="Add_Click" Margin="5" Padding="10,5"/>
+                    <Button x:Name="EditButton" Content="Редактировать" Click="Edit_Click" Margin="5" Padding="10,5"/>
+                    <Button x:Name="DeleteButton" Content="Удалить" Click="Delete_Click" Margin="5" Padding="10,5"/>
+                </WrapPanel>
 
-                <StackPanel Orientation="Horizontal">
+                <WrapPanel>
                     <TextBlock Text="Поиск:" VerticalAlignment="Center" Margin="5,0"/>
                     <TextBox x:Name="SearchBox" Width="250" Margin="5" TextChanged="SearchBox_TextChanged"/>
-                    <Button Content="Сбросить" Click="Reset_Click" Margin="15,5,5,5"/>
-                </StackPanel>
+                    <Button Content="Сбросить" Click="Reset_Click" Margin="15,5,5,5" Padding="10,5"/>
+                </WrapPanel>
                 
             </StackPanel>
 
         </Border>
 
-        <DataGrid x:Name="SubscribersGrid"
-                  Margin="10"
-                  AutoGenerateColumns="True"
-                  Background="White"
-                  BorderBrush="#E0E0E0"
-                  CanUserAddRows="False"
-                  SelectionMode="Single"/>
+        <!-- GRID -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto"
+                      Margin="10">
+            
+            <DataGrid x:Name="SubscribersGrid"
+                      AutoGenerateColumns="True"
+                      CanUserAddRows="False"
+                      SelectionMode="Single"
+                      MinWidth="700"/>
+            
+        </ScrollViewer>
 
     </DockPanel>
-
 </Window>

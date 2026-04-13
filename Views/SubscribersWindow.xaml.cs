@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using PressSubscription.Data;
 using PressSubscription.Models;
+using PressSubscription.Services;
 
 namespace PressSubscription.Views;
 
@@ -16,6 +17,19 @@ public partial class SubscribersWindow : Window
     {
         InitializeComponent();
         LoadData();
+        ApplyUserPermissions();
+    }
+
+    private void ApplyUserPermissions()
+    {
+        var isAdmin = AuthService.IsAdmin();
+        
+        if (!isAdmin)
+        {
+            AddButton.Visibility = Visibility.Collapsed;
+            EditButton.Visibility = Visibility.Collapsed;
+            DeleteButton.Visibility = Visibility.Collapsed;
+        }
     }
 
     private void LoadData()

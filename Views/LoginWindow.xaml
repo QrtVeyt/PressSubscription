@@ -1,0 +1,112 @@
+<Window x:Class="PressSubscription.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Авторизация"
+        Width="450"
+        Height="550"
+        MinWidth="380"
+        MinHeight="450"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize">
+
+    <Border Background="White" 
+            Margin="20"
+            CornerRadius="12"
+            Padding="20">
+        
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
+            
+            <StackPanel>
+                
+                <!-- Logo -->
+                <Image Source="/Assets/logo.png" 
+                       Width="80" 
+                       Height="80" 
+                       Margin="0,0,0,20"
+                       HorizontalAlignment="Center"/>
+                
+                <TextBlock x:Name="TitleText" 
+                           Text="Вход в систему" 
+                           FontSize="20" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
+                
+                <!-- Login Panel -->
+                <StackPanel x:Name="LoginPanel">
+                    <TextBlock Text="Логин" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <TextBox x:Name="UsernameBox" Margin="0,0,0,15"/>
+                    
+                    <TextBlock Text="Пароль" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <PasswordBox x:Name="PasswordBox" Margin="0,0,0,20"/>
+                    
+                    <CheckBox x:Name="RememberMeCheckBox" 
+                              Content="Запомнить меня" 
+                              Margin="0,0,0,20"
+                              IsChecked="True"/>
+                </StackPanel>
+                
+                <!-- Register Panel -->
+                <StackPanel x:Name="RegisterPanel" Visibility="Collapsed">
+                    <TextBlock Text="Логин" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <TextBox x:Name="RegUsernameBox" Margin="0,0,0,15"/>
+                    
+                    <TextBlock Text="Пароль" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <PasswordBox x:Name="RegPasswordBox" Margin="0,0,0,15"/>
+                    
+                    <TextBlock Text="Подтверждение пароля" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <PasswordBox x:Name="RegConfirmPasswordBox" Margin="0,0,0,15"/>
+                    
+                    <TextBlock Text="ФИО" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <TextBox x:Name="RegFullNameBox" Margin="0,0,0,15"/>
+                    
+                    <TextBlock Text="Email" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <TextBox x:Name="RegEmailBox" Margin="0,0,0,20"/>
+                </StackPanel>
+                
+                <!-- Error message -->
+                <TextBlock x:Name="ErrorText" 
+                           Foreground="Red" 
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,10"
+                           Visibility="Collapsed"/>
+                
+                <!-- Action Buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="ActionButton" 
+                            Content="Войти" 
+                            Style="{StaticResource PrimaryButton}"
+                            Click="Action_Click" 
+                            Width="100" 
+                            Height="35"
+                            Margin="5"/>
+                    <Button Content="Отмена" 
+                            Click="Cancel_Click" 
+                            Width="100" 
+                            Height="35"
+                            Margin="5"/>
+                </StackPanel>
+                
+                <!-- Switch mode buttons -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,10">
+                    <Button x:Name="LoginModeBtn" 
+                            Content="Вход" 
+                            Click="SwitchToLoginMode"
+                            Width="80" 
+                            Height="30"
+                            Margin="5"/>
+                    <Button x:Name="RegisterModeBtn" 
+                            Content="Регистрация" 
+                            Click="SwitchToRegisterMode"
+                            Width="80" 
+                            Height="30"
+                            Margin="5"/>
+                </StackPanel>
+                
+            </StackPanel>
+            
+        </ScrollViewer>
+        
+    </Border>
+</Window>

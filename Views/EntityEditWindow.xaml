@@ -11,7 +11,7 @@
 
     <Border Background="White" 
             Padding="20" 
-            CornerRadius="8">
+            CornerRadius="12">
         
         <ScrollViewer VerticalScrollBarVisibility="Auto"
                       HorizontalScrollBarVisibility="Disabled">
@@ -25,40 +25,17 @@
                             Margin="0,10,0,0">
                     
                     <Button Content="OK" 
+                            Style="{StaticResource PrimaryButton}"
                             Click="Ok_Click" 
                             Width="80" 
                             Height="30"
-                            Margin="5"
-                            Background="#2E7D32"
-                            Foreground="White">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}"
-                                        CornerRadius="6"
-                                        Padding="{TemplateBinding Padding}">
-                                    <ContentPresenter HorizontalAlignment="Center"
-                                                      VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                            Margin="5"/>
                     
                     <Button Content="Отмена" 
                             Click="Cancel_Click" 
                             Width="80" 
                             Height="30"
-                            Margin="5">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}"
-                                        CornerRadius="6"
-                                        Padding="{TemplateBinding Padding}">
-                                    <ContentPresenter HorizontalAlignment="Center"
-                                                      VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                            Margin="5"/>
                     
                 </StackPanel>
                 

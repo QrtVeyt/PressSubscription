@@ -15,22 +15,16 @@
         </Grid.RowDefinitions>
 
         <!-- TOP PANEL -->
-        <Border Grid.Row="0"
-                Background="White"
-                Padding="10"
-                BorderBrush="#E0E0E0"
-                BorderThickness="0,0,0,1">
+        <Border Grid.Row="0" Style="{StaticResource TopPanelBorder}">
 
             <StackPanel>
                 
-                <!-- Buttons row -->
                 <WrapPanel Margin="0,0,0,10">
-                    <Button Content="Добавить" Click="Add_Click" Margin="5" Padding="10,5"/>
-                    <Button Content="Редактировать" Click="Edit_Click" Margin="5" Padding="10,5"/>
-                    <Button Content="Удалить" Click="Delete_Click" Margin="5" Padding="10,5"/>
+                    <Button x:Name="AddButton" Content="Добавить" Click="Add_Click" Margin="5" Padding="10,5"/>
+                    <Button x:Name="EditButton" Content="Редактировать" Click="Edit_Click" Margin="5" Padding="10,5"/>
+                    <Button x:Name="DeleteButton" Content="Удалить" Click="Delete_Click" Margin="5" Padding="10,5"/>
                 </WrapPanel>
 
-                <!-- Search row -->
                 <WrapPanel>
                     <TextBlock Text="Поиск:" VerticalAlignment="Center" Margin="5,0"/>
                     <TextBox x:Name="SearchBox" Width="200" Margin="5" TextChanged="SearchBox_TextChanged"/>
@@ -41,7 +35,7 @@
 
         </Border>
 
-        <!-- SCROLLABLE GRID -->
+        <!-- GRID -->
         <ScrollViewer Grid.Row="1" 
                       VerticalScrollBarVisibility="Auto"
                       HorizontalScrollBarVisibility="Auto"
@@ -49,8 +43,6 @@
             
             <DataGrid x:Name="SubscriptionsGrid"
                       AutoGenerateColumns="False"
-                      Background="White"
-                      BorderBrush="#E0E0E0"
                       CanUserAddRows="False"
                       SelectionMode="Single"
                       MinWidth="900">
