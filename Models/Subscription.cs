@@ -1,3 +1,5 @@
+using System;
+
 namespace PressSubscription.Models;
 
 public class Subscription
@@ -10,6 +12,11 @@ public class Subscription
     public int PublicationId { get; set; }
     public Publication Publication { get; set; } = null!;
 
-    public DateTime StartDate { get; set; } = DateTime.Now;
+    public DateTime StartDate { get; set; }
     public int Months { get; set; }
+
+    public decimal BaseCost { get; set; }
+    public decimal DeliveryCost { get; set; }
+    public decimal Vat { get; set; }
+    public decimal TotalCost { get; set; }
 }

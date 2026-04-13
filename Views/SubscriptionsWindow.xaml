@@ -2,14 +2,55 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Подписки"
-        Height="400"
-        Width="700">
+        Height="500"
+        Width="800">
 
     <DockPanel>
 
-        <Button Content="Добавить" Click="Add_Click" DockPanel.Dock="Top"/>
+        <!-- TOP -->
+        <StackPanel DockPanel.Dock="Top"
+                    Orientation="Horizontal"
+                    Margin="10">
 
-        <DataGrid x:Name="SubscriptionsGrid" AutoGenerateColumns="True"/>
+            <Button Content="Добавить"
+                    Click="Add_Click"
+                    Margin="5"/>
+
+        </StackPanel>
+
+        <!-- GRID -->
+        <DataGrid x:Name="SubscriptionsGrid"
+                  AutoGenerateColumns="False">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Подписчик"
+                                    Binding="{Binding Subscriber.FullName}" />
+
+                <DataGridTextColumn Header="Издание"
+                                    Binding="{Binding Publication.Title}" />
+
+                <DataGridTextColumn Header="Старт"
+                                    Binding="{Binding StartDate}" />
+
+                <DataGridTextColumn Header="Месяцев"
+                                    Binding="{Binding Months}" />
+
+                <DataGridTextColumn Header="База"
+                                    Binding="{Binding BaseCost}" />
+
+                <DataGridTextColumn Header="Доставка (1%)"
+                                    Binding="{Binding DeliveryCost}" />
+
+                <DataGridTextColumn Header="НДС (18%)"
+                                    Binding="{Binding Vat}" />
+
+                <DataGridTextColumn Header="Итого"
+                                    Binding="{Binding TotalCost}" />
+
+            </DataGrid.Columns>
+
+        </DataGrid>
 
     </DockPanel>
 
